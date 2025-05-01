@@ -47,6 +47,5 @@ cats... Their behavior is a bit too random to control at the moment. There is co
 
 ###
 text boxes... I only have one at the moment, but would like to expand this. I The issue with the boat master ate up alot of time so this is really a matter of debugging why his doesn't work and trying to replicate it.
-### The end?
-![image](https://github.com/user-attachments/assets/0ab5b15d-8c35-4742-816c-2acada8e3da1)
+### The end: ![image](https://github.com/user-attachments/assets/0ab5b15d-8c35-4742-816c-2acada8e3da1)
 Well, there should really be more to the story....at least a happy ending! I left a brief dialgue at the end, but I really wanted to create something along the lines of a totally non-copyrighted entity known as "Princess Orange". 
