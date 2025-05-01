@@ -115,13 +115,11 @@ class Player(pygame.sprite.Sprite):
         if self.rect.right > self.max_x:
             self.rect.right = self.max_x
 
-
     # health bar drawn
     def draw_health(self, screen):
         pygame.draw.rect(screen, (255, 0, 0), self.health_bar)
         pygame.draw.rect(screen, (0, 255, 0), (self.health_bar.x, self.health_bar.y,
         self.health_bar.width * (self.health / 5), self.health_bar.height))
-
 
 # move the frog
     def update(self):
