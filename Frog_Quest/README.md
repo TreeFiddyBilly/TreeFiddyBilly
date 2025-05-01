@@ -14,6 +14,8 @@ Beyond the "HappyWheels" victory music and some cat sounds, I recorded the dialo
 ## Controls & Basics:
 Fairly basic, really. For now press the LEFT or RIGHT key to hop in the corresponding direction. SPACE to attack! I would like to add another image to match the UP key so that our hero has a way to attack those pesky birds that we'll cover later. The animation is really just shifting and alternating through different images. In the future I would like to get somewhere between 5 and 8 per moving sprite and just increment through them appropriately. 
 
+Press the "Q" key to quit.
+
 You can also skip through dialogue events using the "D" key.
 
 Our hero has a health bar at the top and it is currently set to 5, where 5 hits will kill him. This can be adjusted in the Player class...just look for the comment "health".

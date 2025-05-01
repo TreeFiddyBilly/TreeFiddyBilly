@@ -1,3 +1,5 @@
+import sys
+
 import pygame
 import random
 
@@ -248,7 +250,8 @@ def transition_to_new_background(screen, player, background_objects):
     for cactus in cactuses:
         background_objects.add(cactus)
 
-    pygame.draw.rect(screen, (115, 230, 0), (0, 237, 201, 175))
+    #pygame.draw.rect(screen, (115, 230, 0), (0, 237, 201, 175))
+    background_objects.draw(screen)
 
     # Move player to starting position
     player.rect.center = (200, 500)
@@ -265,7 +268,6 @@ def transition_to_new_background(screen, player, background_objects):
         boatmaster_speech_2.stop()
         boatmaster.fading = True
         boatmaster.kill()
-
 
     pygame.time.delay(1500)
     wizzo_speech_3.play()
@@ -471,7 +473,10 @@ while running:
     # health
     player.draw_health(screen)
     # bottom half color...lawn green
-    pygame.draw.rect(screen, (115, 230, 0), (0, 300, 800, 300))
+    if not transition_complete:
+        pygame.draw.rect(screen, (115, 230, 0), (0, 300, 800, 300))
+    else:
+        pygame.draw.rect(screen, (237, 201, 175), (0, 300, 800, 300))
     # draw background stuff & sprites
     background_objects.draw(screen)
     all_sprites.draw(screen)
@@ -510,6 +515,13 @@ while running:
                     boatmaster.fading = True
                     boatmaster.kill()
                     boatmaster = None
+
+        # quit
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_q:
+                pygame.quit()
+                sys.exit()
+
     pygame.display.flip()
     clock.tick(60)  # 60 FPS
 
