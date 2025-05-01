@@ -224,8 +224,6 @@ for pos in cactus_positions:
     cactus = BackgroundCactus('assets/images/cactus.png', pos[0], pos[1])
     cactuses.append(cactus)
 
-
-
 cloud = BackgroundCloud('assets/images/cloud.png', 400, 125)
 background_objects.add(cloud)
 

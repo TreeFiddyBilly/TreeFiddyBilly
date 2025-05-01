@@ -53,15 +53,11 @@ class Cat(pygame.sprite.Sprite):
         else:
             self.set_state("idle")
 
-        # reset cat's position if it goes off-screen
-        if self.rect.x < 0 or self.rect.x > 800:
-            self.rect.x = random.randint(800, 1000)
-        elif self.rect.x > 800:
-            self.rect.x = random.randint(0, 200)
-            self.rect.y = self.player.rect.y
-            self.speedx = random.choice([-1, 1])
-            self.facing_left = self.speedx < 0
-            self.update_image()
+            # wrangle the cats back
+            if self.rect.x < -100:
+                self.rect.x = random.randint(800, 900)
+            elif self.rect.x > 900:
+                self.rect.x = random.randint(-100, -50)
 
         # going to add cat damage sound
     def take_damage(self):

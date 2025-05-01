@@ -16,10 +16,10 @@ class Cowboy(pygame.sprite.Sprite):
         self.state = "idle"
         self.image = self.images[self.state]
         self.rect = self.image.get_rect()
-        self.rect.x = random.randint(800, 900)
-        #self.rect.y = player.rect.y + 10
-        self.rect.center = self.player.rect.center
-        self.speedx = random.choice([-1, 1])
+        self.rect.x = self.player.rect.x
+        self.rect.y = player.rect.y - 100
+        #self.rect.center = self.player.rect.center
+        self.speedx = -2
         self.all_sprites = all_sprites
         self.facing_left = self.speedx < 0
         self.update_image()
@@ -58,7 +58,7 @@ class Cowboy(pygame.sprite.Sprite):
             else:
                 self.rect.centerx = self.rect.centerx + 200
 
-        self.rect.y = self.player.rect.y
+        self.rect.y = self.player.rect.y - 100
         #self.speedx = random.choice([-1, 1])
         self.facing_left = self.speedx < 0
         self.update_image()
