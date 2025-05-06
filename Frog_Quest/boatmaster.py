@@ -10,9 +10,10 @@ class Boatmaster(pygame.sprite.Sprite):
         self.channel = None
         self.talking = False
         self.fading = False
+        self.has_spoken_1 = False
+        self.has_spoken_2 = False
         self.fade_alpha = 255
         self.original_image = self.image.copy()
-        self.finished_second_speech = False
 
     def update(self):
         if self.talking and self.channel and not self.channel.get_busy():
@@ -35,7 +36,7 @@ class Boatmaster(pygame.sprite.Sprite):
         font = pygame.font.Font('freesansbold.ttf', 20)
 
         message = (
-            "Hello young Frog, I am the local boatmaster."
+            "Hello young Frog, I am the local boatmaster. "
             "I have several hungry cats at home, and I was wondering if you could procure 3 bags of kibble for me."
             "As you can probably imagine,being a boatmaster with no ocean, has posed some challenges."
             "That's why I have resorted to driving a covered-wagon."
@@ -50,6 +51,9 @@ class Boatmaster(pygame.sprite.Sprite):
             text_surface = font.render(line, True, (255, 255, 255))
             screen.blit(text_surface, (text_box.x + 20, y))
             y += font.get_height() + 5
+
+            pygame.display.flip()
+
 
     def speak_kibble(self, screen):
         # draw the textbox
@@ -73,6 +77,9 @@ class Boatmaster(pygame.sprite.Sprite):
             screen.blit(text_surface, (text_box.x + 20, y))
             y += font.get_height() + 5
 
+            pygame.display.flip()
+            pygame.time.delay(2000)
+
     def speech_no_kibble(self, sound):
         print("Speech no kibble triggered")
         self.dialogue_type = "no kibble"
@@ -85,16 +92,18 @@ class Boatmaster(pygame.sprite.Sprite):
         self.channel = sound.play()
         self.talking = True
 
-    def start_talking(self, kibble_collected, screen, boatmaster_completed):
+    def start_talking(self, kibble_collected, screen):
         if not self.talking:
             if kibble_collected:
                 sound = pygame.mixer.Sound("assets/sounds/boatmaster_kibble.wav")
                 self.speech_kibble(sound)
                 self.speak_kibble(screen)
+
             else:
                 sound = pygame.mixer.Sound("assets/sounds/boatmaster_no_kibble.wav")
                 self.speech_no_kibble(sound)
                 self.speak_no_kibble(screen)
+
 
     def stop_talking_1(self):
         if self.channel and self.channel.get_busy():
@@ -102,10 +111,12 @@ class Boatmaster(pygame.sprite.Sprite):
         self.talking = False
         self.fading = True
         self.finished_first_speech = True
+        self.has_spoken_1 = True
 
     def stop_talking_2(self):
         if self.channel and self.channel.get_busy():
             self.channel.stop()
         self.talking = False
         self.fading = True
-        self.finished_second_speech = True
+        self.has_spoken_2 = True
+        self.kill()

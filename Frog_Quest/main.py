@@ -331,11 +331,6 @@ while running:
     player.update()
     all_sprites.update()
 
-    #reset captain no-boat
-    if boatmaster_spawned and boatmaster and not boatmaster.alive() and not boatmaster_completed_2:
-        boatmaster = None
-        boatmaster_spawned = False
-
     # collision detection with rock & cats
     rock_hits = pygame.sprite.spritecollide(player, rocks, True)
     cat_hits = pygame.sprite.spritecollide(player, cats, False)
@@ -409,28 +404,26 @@ while running:
                 boatmaster.update()
             elif not boatmaster.talking:
                 if not boatmaster_completed_1 and kibble_collected == False:
-                    boatmaster.start_talking(kibble_collected, screen, False)
+                    boatmaster.start_talking(kibble_collected, screen)
+                    print("text should appear for speech 1)")
                     boatmaster_completed_1 = True
                     boatmaster_distance = -300
 
                 elif not boatmaster_completed_2 and kibble_collected == True:
-                    boatmaster.start_talking(kibble_collected, screen, True)
+                    boatmaster.start_talking(kibble_collected, screen)
                     boatmaster_completed_2 = True
 
             # part 2 starts here
-            if boatmaster_completed_2 and boatmaster.finished_second_speech:
+            if boatmaster_completed_2 and boatmaster.has_spoken_2:
                 boatmaster.stop_talking_2()
-                #boatmaster_distance = 10000 # overkill
-                #all_sprites.remove(boatmaster)
-                #boatmaster.kill()
                 boatmaster = None
-                boatmaster_spawned = False
                 transition_complete = True
                 transition_to_new_background(screen, player, background_objects)
 
     if transition_complete and distance_traveled >= cowboy_distance:
         cowboy = Cowboy(all_sprites, player)
         all_sprites.add(cowboy)
+        all_sprites.remove(boatmaster)
         cowboys.add(cowboy)
         cowboy.rect.topleft = (player.rect.centerx + 150, 300)
         cowboy_speech_1.play()
@@ -484,6 +477,7 @@ while running:
 
     if wizard and wizard.talking:
         wizard.speak(screen)
+
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

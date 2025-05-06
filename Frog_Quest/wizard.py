@@ -59,3 +59,4 @@ class Wizard(pygame.sprite.Sprite):
             self.channel.stop()
         self.talking = False
         self.fading = True
+
