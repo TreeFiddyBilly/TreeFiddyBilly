@@ -55,6 +55,7 @@ class Boatmaster(pygame.sprite.Sprite):
             pygame.display.flip()
 
 
+
     def speak_kibble(self, screen):
         # draw the textbox
         text_box = pygame.Rect(100, 300, 700, 185)
@@ -103,7 +104,6 @@ class Boatmaster(pygame.sprite.Sprite):
                 sound = pygame.mixer.Sound("assets/sounds/boatmaster_no_kibble.wav")
                 self.speech_no_kibble(sound)
                 self.speak_no_kibble(screen)
-
 
     def stop_talking_1(self):
         if self.channel and self.channel.get_busy():

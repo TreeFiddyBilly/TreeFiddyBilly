@@ -349,6 +349,7 @@ while running:
             if cats_defeated >= max_cats - 3:
                 for cat in cats:
                     cat.kill()
+                all_sprites.remove(cat)
                 cat_hiss_sound.stop()
                 kibble_collected = True
                 boatmaster_distance = -200
@@ -405,7 +406,9 @@ while running:
                 if not boatmaster_completed_1 and kibble_collected == False:
                     boatmaster.start_talking(kibble_collected, screen)
                     print("text should appear for speech 1)")
-                    boatmaster_completed_1 = True
+                    print(f"boatmaster complete_1?{boatmaster_completed_1}")
+                    #boatmaster_completed_1 = True
+                    print(f"boatmaster complete_1?{boatmaster_completed_1}")
                     boatmaster_distance = -300
 
                 elif not boatmaster_completed_2 and kibble_collected == True:
@@ -439,7 +442,7 @@ while running:
             cat_spawned = True
 
     current_time = pygame.time.get_ticks()
-    if rock_hits or cat_hits and current_time - player.last_hit_time > player.invincibility_time:
+    if (rock_hits or cat_hits or cowboy_hits) and current_time - player.last_hit_time > player.invincibility_time:
         print("Ouch!")
         player.health -= 1
         player.last_hit_time = current_time
