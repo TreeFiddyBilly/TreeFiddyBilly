@@ -1,0 +1,2 @@
+class Cowboy:
+    pass

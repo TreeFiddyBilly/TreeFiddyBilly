@@ -3,7 +3,6 @@ import sys
 import pygame
 import random
 
-from Frog_Quest import cowboy
 from Frog_Quest.attack import Tongue
 from Frog_Quest.bird import Bird
 from Frog_Quest.cowboy import Cowboy
@@ -243,7 +242,7 @@ def transition_to_new_background(screen, player, background_objects):
         screen.blit(fade_surface, (0, 0))
         fade_surface.set_alpha(alpha)
         pygame.display.update()
-        #pygame.time.delay(10)
+
     # gotta have a cactus or 3
     for cactus in cactuses:
         background_objects.add(cactus)
