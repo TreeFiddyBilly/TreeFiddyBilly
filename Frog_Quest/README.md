@@ -39,15 +39,15 @@ This dastardly fellow is your final boss! He's quite a bit tougher, and since th
 
 ## Known issues
 ###
-The cloud had a fun feature where it whould move depending on your direction and was set to match your scroll speed. So if you walked to left it would move more quickly but would be idle walking right as you were traveling really fast! Idle it was supposed to move on it's own. The latest push to integrate the cowboy & relevent background is likely the culprit but it should be a simple fix.
+The cloud had a fun feature where it would move depending on your direction and was set to match your scroll speed. So if you walked to left it would move more quickly but would be idle walking right as you were traveling really fast! Idle it was supposed to move on it's own. The latest push to integrate the cowboy & relevent background is likely the culprit but it should be a simple fix.
 
 ###
-The boat master... A great deal of time was spent trying to accomodate the correct logic to offer two sets of dialogue so there are loads of flags and checks in place that has had side affects. Primarily he doesn't go away on his own before the fight with the cowboy so you'll have to skip the dialogue (update 6 May 2025, this should work now). I didn't place the wizard's third dialogue in the skip logic as it's sort of the queue that you're almost done.
+The boat master... A great deal of time was spent trying to accommodate the correct logic to offer two sets of dialogue so there are loads of flags and checks in place that has had side affects. Primarily he doesn't go away on his own before the fight with the cowboy so you'll have to skip the dialogue (update 6 May 2025, this should work now). I didn't place the wizard's third dialogue in the skip logic as it's sort of the queue that you're almost done.
 
 ###
-cats... Their behavior is a bit too random to control at the moment. There is conflicting facotrs in regards to timing & logic for when the kibble_collected flag is tripped and the cats disappear. They also seem to spawn on top of each other more than I intended. Anyways to be safe I set the maximum number of cats that can spawn to six and the kibble_collected flag trips when "cats_defeated >= max_cats - 3"... so 3 bags. It would also be cool to create droppable bags that are collected on collision.
+cats... Their behavior is a bit too random to control at the moment. There is conflicting factors in regards to timing & logic for when the kibble_collected flag is tripped and the cats disappear. They also seem to spawn on top of each other more than I intended. Anyways, to be safe I set the maximum number of cats that can spawn to six and the kibble_collected flag trips when "cats_defeated >= max_cats - 3"... so 3 bags. It would also be cool to create droppable bags that are collected on collision.
 
 ###
 text boxes... I only have one at the moment, but would like to expand this. I The issue with the boat master ate up alot of time so this is really a matter of debugging why his doesn't work and trying to replicate it.
 ### The end: ![image](https://github.com/user-attachments/assets/0ab5b15d-8c35-4742-816c-2acada8e3da1)
-Well, there should really be more to the story....at least a happy ending! I left a brief dialgue at the end, but I really wanted to create something along the lines of a totally non-copyrighted entity known as "Princess Orange". 
+Well, there should really be more to the story....at least a happy ending! I left a brief dialogue at the end, but I really wanted to create something along the lines of a totally non-copyrighted entity known as "Princess Orange". 
